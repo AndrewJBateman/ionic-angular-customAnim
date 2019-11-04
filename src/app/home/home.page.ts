@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ToastController, AlertController } from '@ionic/angular';
+import { customAlertEnter } from '../customAlertEnter';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,15 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private toastCtrl: ToastController, private alert: AlertController) {}
 
+  async showAlert() {
+    let alert = await this.alert.create({
+      message: 'A new toast message',
+      header: 'Alert Header',
+      buttons: ['OK'],
+      enterAnimation: customAlertEnter
+    });
+    alert.present();
+  }
 }

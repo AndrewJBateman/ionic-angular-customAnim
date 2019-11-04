@@ -1,14 +1,17 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Ionic Blank
+      Ionic Custom Animations
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-button expand="block" (click)="showAlert()">
+    Open custom alert
+  </ion-button>
+
+  <ion-button expand="block" routerLink="/second">
+    Open second page
+  </ion-button>
 </ion-content>

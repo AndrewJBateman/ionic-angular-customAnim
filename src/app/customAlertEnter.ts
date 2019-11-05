@@ -1,42 +1,28 @@
-import { Animation } from '@ionic/core';
-
-export function customAlertEnter(
-    AnimationC: Animation,
-    baseEl: HTMLElement
-): Promise<Animation> {
+import { Animation } from '@ionic/core'
+ 
+export function customAlertEnter(AnimationC: Animation, baseEl: HTMLElement): Promise<Animation> {
+ 
     const baseAnimation = new AnimationC();
-
+  
+    const backdropAnimation = new AnimationC();
+    backdropAnimation.addElement(baseEl.querySelector('ion-backdrop'));
+  
     const wrapperAnimation = new AnimationC();
-
-    const hostEl = (baseEl.host || baseEl) as HTMLElement;
-    const wrapperEl = baseEl.querySelector('.toast-wrapper') as HTMLElement;
-
-    wrapperAnimation.addElement(wrapperEl);
-
-    const bottom = `calc(8px + var(--ion-safe-area-bottom, 0px))`;
-    const top = `calc(8px + var(--ion-safe-area-top, 0px))`;
-
-    switch (position) {
-      case 'top':
-        wrapperEl.style.top = top;
-        wrapperEl.style.opacity = '1';
-        wrapperAnimation.fromTo('transform', `translateY(-${hostEl.clientHeight}px)`, 'translateY(10px)')
-        break;
-      case 'middle':
-        const topPosition = Math.floor(
-          hostEl.clientHeight / 2 - wrapperEl.clientHeight / 2
-        );
-        wrapperEl.style.top = `${topPosition}px`;
-        wrapperAnimation.fromTo('opacity', 0.01, 1);
-        break;
-      default:
-        wrapperEl.style.bottom = bottom;
-        wrapperAnimation.fromTo('opacity', 0.01, 1);
-        break;
-    }
+    const wrapperElem = baseEl.querySelector('.alert-wrapper') as HTMLElement;
+    wrapperAnimation.addElement(wrapperElem);
+  
+    wrapperElem.style.top = '0';
+  
+    backdropAnimation.fromTo('opacity', 0.01, 0.3);
+    console.log(baseEl.clientHeight);
+  
+    wrapperAnimation.beforeStyles({ 'opacity': 1 });
+    wrapperAnimation.fromTo('transform', `translateY(-${baseEl.clientHeight}px)`, 'translateY(0px)')
+  
     return Promise.resolve(baseAnimation
-      .addElement(hostEl)
-      .easing('cubic-bezier(.36,.66,.04,1)')
-      .duration(400)
-      .add(wrapperAnimation));
+      .addElement(baseEl)
+      .easing('cubic-bezier(.36, .66, .3, .1, 1)')
+      .duration(500)
+      .add(wrapperAnimation)
+      .add(backdropAnimation));
   }

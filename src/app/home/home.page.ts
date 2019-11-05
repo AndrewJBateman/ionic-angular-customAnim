@@ -13,11 +13,12 @@ export class HomePage {
 
   async showAlert() {
     let alert = await this.alert.create({
-      message: 'A new toast message',
+      message: 'A new alert message',
       header: 'Alert Header',
       buttons: ['OK'],
       enterAnimation: customAlertEnter
     });
+
     alert.present();
   }
 }

@@ -18,9 +18,7 @@ import { customAlertEnter } from './customAlertEnter';
   entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot({
-    alertEnter: customAlertEnter
-    }),
+    IonicModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule
   ],

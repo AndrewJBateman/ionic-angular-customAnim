@@ -1,6 +1,9 @@
 import { Animation } from '@ionic/core'
  
-export function customAlertEnter(AnimationC: Animation, baseEl: HTMLElement): Promise<Animation> {
+export function customAlertEnter(
+  AnimationC: Animation,
+  baseEl: HTMLElement
+): Promise<Animation> {
  
     const baseAnimation = new AnimationC();
   
@@ -14,10 +17,12 @@ export function customAlertEnter(AnimationC: Animation, baseEl: HTMLElement): Pr
     wrapperElem.style.top = '0';
   
     backdropAnimation.fromTo('opacity', 0.01, 0.3);
-    console.log(baseEl.clientHeight);
   
-    wrapperAnimation.beforeStyles({ 'opacity': 1 });
-    wrapperAnimation.fromTo('transform', `translateY(-${baseEl.clientHeight}px)`, 'translateY(0px)')
+    wrapperAnimation
+      .beforeStyles({ 'opacity': 1 });
+
+    wrapperAnimation
+      .fromTo('transform', `translateY(-${baseEl.clientHeight}px)`, 'translateY(0px)')
   
     return Promise.resolve(baseAnimation
       .addElement(baseEl)
@@ -25,4 +30,4 @@ export function customAlertEnter(AnimationC: Animation, baseEl: HTMLElement): Pr
       .duration(500)
       .add(wrapperAnimation)
       .add(backdropAnimation));
-  }
+}

@@ -1,24 +1,35 @@
-import { Component } from '@angular/core';
-import { ToastController, AlertController } from '@ionic/angular';
-import { customAlertEnter } from '../customAlertEnter';
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { AnimationController, Animation } from '@ionic/angular';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+	selector: 'app-home',
+	templateUrl: 'home.page.html',
+	styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements AfterViewInit {
+	anim: Animation;
+	@ViewChild('square', { static: false }) square: ElementRef;
+	isPlaying = false;
 
-  constructor(private toastCtrl: ToastController, private alert: AlertController) {}
+	constructor(private animationCntl: AnimationController) {}
 
-  async showAlert() {
-    let alert = await this.alert.create({
-      message: 'A new alert message',
-      header: 'Alert Header',
-      buttons: ['OK'],
-      enterAnimation: customAlertEnter
-    });
+	ngAfterViewInit() {
+		this.anim = this.animationCntl.create('myanim');
+		this.anim
+			.addElement(this.square.nativeElement)
+			.duration(1500)
+			.easing('ease-out')
+			.iterations(Infinity)
+			.fromTo('transform', 'translate(0px)', 'translateX(300px)')
+			.fromTo('opacity', 1, 0.2);
+	}
 
-    alert.present();
-  }
+	toggleAnimation() {
+		if (this.isPlaying) {
+      this.anim.stop();
+		} else {
+      this.anim.play();
+		}
+		this.isPlaying = !this.isPlaying;
+	}
 }

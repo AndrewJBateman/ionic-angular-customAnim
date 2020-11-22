@@ -26,9 +26,9 @@ export class HomePage implements AfterViewInit {
 
 	toggleAnimation() {
 		if (this.isPlaying) {
-      this.anim.stop();
+			this.anim.stop();
 		} else {
-      this.anim.play();
+			this.anim.play();
 		}
 		this.isPlaying = !this.isPlaying;
 	}

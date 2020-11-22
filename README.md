@@ -1,6 +1,7 @@
 # :zap: Ionic Angular Custom Animations
 
-* App created using the [Ionic 5 framework](https://ionicframework.com/docs) to create custom animations. Another great tutorial from Simon Grimm at the [Ionic Academy](https://ionicacademy.com).
+* App created using the [Ionic 5 framework](https://ionicframework.com/docs) to create custom animations.
+* Another great tutorial from Simon Grimm at the [Ionic Academy](https://ionicacademy.com) - [:clap: Inspiration](#clap-inspiration) below.
 
 ## :page_facing_up: Table of contents
 
@@ -29,12 +30,13 @@
 ## :signal_strength: Technologies
 
 * [Ionic v5](https://ionicframework.com/)
-* [Angular v10](https://angular.io/)
+* [Angular v11](https://angular.io/)
 * [Ionic/angular v5](https://www.npmjs.com/package/@ionic/angular)
 * [Ionic Animations](https://ionicframework.com/docs/utilities/animations)
 
 ## :floppy_disk: Setup
 
+* Run `npm i` to install dependencies
 * To start the server on _localhost://8100_ type: 'ionic serve -o'
 
 ## :computer: Code Examples
@@ -54,7 +56,7 @@ if (opts.direction === 'forward') {
 
 ## :cool: Features
 
-* Animation parameters such as opacity, ease-in & ease-out times, duration, etc. can be customised. See Ionic website and Github links in 'Inspiration' below.
+* Animation parameters such as opacity, ease-in & ease-out times, duration, etc. can be customised. See 'Inspiration' below.
 
 ## :clipboard: Status & To-do list
 

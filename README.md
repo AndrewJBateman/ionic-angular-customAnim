@@ -1,6 +1,6 @@
 # :zap: Ionic Angular Custom Animations
 
-* App created using the [Ionic 5 framework](https://ionicframework.com/docs) to create custom animations.
+* App created using the [Ionic framework](https://ionicframework.com/docs) to create custom animations.
 * Another great tutorial from Simon Grimm at the [Ionic Academy](https://ionicacademy.com) - [:clap: Inspiration](#clap-inspiration) below.
 * **Note:** to open web links in a new window use: _ctrl+click on link_
 
@@ -36,9 +36,9 @@
 
 ## :signal_strength: Technologies
 
-* [Ionic v5](https://ionicframework.com/)
-* [Angular v12](https://angular.io/)
-* [Ionic/angular v5](https://www.npmjs.com/package/@ionic/angular)
+* [Ionic v6](https://ionicframework.com/)
+* [Angular v13](https://angular.io/)
+* [Ionic/angular v6](https://www.npmjs.com/package/@ionic/angular)
 * [Ionic Animations](https://ionicframework.com/docs/utilities/animations)
 
 ## :floppy_disk: Setup
@@ -67,8 +67,8 @@ if (opts.direction === 'forward') {
 
 ## :clipboard: Status & To-do list
 
-* Status: Working. Updated june 2021
-* To-do: nothing
+* Status: Working.
+* To-do: Nothing
 
 ## :clap: Inspiration
 
